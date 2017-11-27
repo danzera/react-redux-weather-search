@@ -8,10 +8,8 @@ export function fetchWeather(city) {
 	const url = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}&q=${city},us`;
 	const request = axios.get(url);
 
-	request.then(res => console.log('response', res));
-
 	return {
 		type: FETCH_WEATHER,
-		payload: city
+		payload: request
 	}
 }
