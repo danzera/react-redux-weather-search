@@ -7,8 +7,8 @@ class WeatherList extends Component {
 	renderList() {
 		return _.map(this.props.weatherList, cityData => {
 			return (
-				<tr key={cityData.name}>
-					<td>{cityData.name}</td>
+				<tr key={cityData.city.name}>
+					<td>{cityData.city.name}</td>
 					<td><Chart data={cityData} /></td>
 					<td><Chart data={cityData} /></td>
 					<td><Chart data={cityData} /></td>
