@@ -7,7 +7,6 @@ class SearchBar extends Component {
 	// need to use constructor to keep track of our input's value
 	constructor(props) {
 		super(props);
-		console.log('SearchBar props', props);
 		// need to bind context of "this" to our callback function so we can reference "this.state" within the callback function
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 
@@ -19,7 +18,6 @@ class SearchBar extends Component {
 	onFormSubmit(e) {
 		e.preventDefault();
 		this.setState({ city: '' });
-		console.log('search submitted for...', this.state.city);
 		this.props.fetchWeather(this.state.city);
 	}
 
