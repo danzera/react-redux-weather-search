@@ -2,3 +2,24 @@ h1 {
 	margin-top: 20px !important;
 	text-align: center;
 }
+
+/* add selector for both <td> and <th> elements */
+td, th {
+	vertical-align: middle !important;
+	text-align: center !important;
+}
+
+.input-group {
+	margin: 20px 0;
+}
+
+/* gives our charts uniform size */
+svg {
+	height: 150px;
+}
+
+/* find the 1st <td> inside of each row and also find the 1st td and its child <div> */
+td:first-of-type, td:first-of-type > div {
+	height: 200px;
+	width: 250px;
+}

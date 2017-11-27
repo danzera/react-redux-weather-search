@@ -7,7 +7,7 @@ export default props => {
 	const avg = _.round(_.sum(props.data) / props.data.length);
 	return (
 		<div>
-			<Sparklines data={props.data}>
+			<Sparklines data={props.data} height={120} width={180}>
 				<SparklinesLine color={props.color} />
 				<SparklinesReferenceLine type="avg" />
 			</Sparklines>
