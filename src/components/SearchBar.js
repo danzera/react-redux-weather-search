@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { fetchWeather } from '../actions';
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
 	// need to use constructor to keep track of our input's value
 	constructor(props) {
 		super(props);
+		console.log('SearchBar props', props);
 		// need to bind context of "this" to our callback function so we can reference "this.state" within the callback function
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 
@@ -17,6 +20,7 @@ export default class SearchBar extends Component {
 		e.preventDefault();
 		this.setState({ city: '' });
 		console.log('search submitted for...', this.state.city);
+		this.props.fetchWeather(this.state.city);
 	}
 
 	render() {
@@ -32,3 +36,9 @@ export default class SearchBar extends Component {
 		)
 	}
 }
+
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
