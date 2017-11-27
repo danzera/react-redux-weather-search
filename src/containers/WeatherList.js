@@ -10,10 +10,10 @@ class WeatherList extends Component {
 			const tempData = _.map(cityData.list, dataSnapshot => _.round((dataSnapshot.main.temp * 9 / 5) - 459.67));
 			const pressureData = _.map(cityData.list, dataSnapshot => dataSnapshot.main.pressure);
 			const humidityData = _.map(cityData.list, dataSnapshot => dataSnapshot.main.humidity);
-			console.log('city data', cityData); 
+			const { lat, lon } = cityData.city.coord;
 			return (
 				<tr key={cityData.city.name}>
-					<td><GoogleMap city={cityData.city.name} /></td>
+					<td><GoogleMap lat={lat} lng={lon} /></td>
 					<td><Chart data={tempData} color="red" units="&deg;F" /></td>
 					<td><Chart data={pressureData} color="blue" units="hPa" /></td>
 					<td><Chart data={humidityData} color="green" units="%" /></td>

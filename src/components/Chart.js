@@ -3,7 +3,6 @@ import { Sparklines, SparklinesLine, SparklinesReferenceLine } from 'react-spark
 import _ from 'lodash';
 
 export default props => {
-	console.log('Chart props', props);
 	const avg = _.round(_.sum(props.data) / props.data.length);
 	return (
 		<div>
