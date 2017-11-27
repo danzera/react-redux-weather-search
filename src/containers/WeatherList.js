@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 class WeatherList extends Component {
 	renderList() {
-		return (
-			<tr>
-				<td>City Here...</td>
-				<td>Chart here...</td>
-				<td>Chart here...</td>
-				<td>Chart here...</td>
-			</tr>
-		);
+		return _.map(this.props.weatherList, cityData => {
+			return (
+				<tr key={cityData.name}>
+					<td>{cityData.name}</td>
+					<td>Chart here...</td>
+					<td>Chart here...</td>
+					<td>Chart here...</td>
+				</tr>
+			);
+		});
 	}
 
 	render() {
@@ -33,7 +36,6 @@ class WeatherList extends Component {
 }
 
 function maptStateToProps(state) {
-	console.log('state provided to WeatherList', state);
 	return { weatherList: state.weather }
 }
 
