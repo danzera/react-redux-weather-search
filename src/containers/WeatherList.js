@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class WeatherList extends Component {
+class WeatherList extends Component {
 	render() {
 		return (
 			<div>
@@ -9,3 +10,10 @@ export default class WeatherList extends Component {
 		)
 	}
 }
+
+function maptStateToProps(state) {
+	console.log('state provided to WeatherList', state);
+	return { weatherList: state.weather }
+}
+
+export default connect(maptStateToProps)(WeatherList);
