@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import Chart from '../components/Chart';
 
 class WeatherList extends Component {
 	renderList() {
@@ -8,9 +9,9 @@ class WeatherList extends Component {
 			return (
 				<tr key={cityData.name}>
 					<td>{cityData.name}</td>
-					<td>Chart here...</td>
-					<td>Chart here...</td>
-					<td>Chart here...</td>
+					<td><Chart data={cityData} /></td>
+					<td><Chart data={cityData} /></td>
+					<td><Chart data={cityData} /></td>
 				</tr>
 			);
 		});
